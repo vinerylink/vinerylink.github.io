@@ -1,7 +1,7 @@
 #vinerylink.github.io
 ====================
 
-Blog create with Jekyll for static pages.
+(Domand you and me ¥10.00 to purchase VPN: <http://igotvpn.com/?r=c2baea25e0a28c02>)
 
 ##Android repo:
 1. animation topic: https://github.com/Rano1/Interactive-animation
