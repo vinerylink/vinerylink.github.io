@@ -2,102 +2,50 @@
 layout: post
 title: "Material Design Collection"
 comments: true
-permalink: install-mysql
+permalink: material-design
 ---
 
-![Test](/assets/test.jpg)
+![Matieal Design](/assets/test.jpg)
 
-*This is the second post in a [series of posts]({% post_url 2014-04-17-data-science-sql %})
-about doing data science with SQL. The [previous post]({% post_url 2014-04-18-database-normalization %})
-described the topic of database normalization and good database design.*
+*This is the overview of link to Material Design [overview post]({% post_url 2015-01-21-material-design-collection %})
+including UI design with Material Desigin. The [overview post]({% post_url 2015-01-21-material-design-collection %})
+described the topic of material design principle, projects and articles.*
 
-In this post, I will describe how to setup [MySQL](http://www.mysql.com/)
-on your local machine.  MySQL is great for learning about SQL and
-relational databases because it is popular, open source, and easy
-to get started with.  By the end of this post, you will be able to
-issue SQL queries against a MySQL database on your local machine.
+In this post, I will list the link to 
 
-## Setting up SQL On Your local Machine
+## Colleciton
 
-[mysql.com](mysql.com) documents the steps required
-to install MySQL on
-[Windows](https://dev.mysql.com/doc/refman/5.0/en/windows-installation.html)
-and
-[Mac](https://dev.mysql.com/doc/refman/5.0/en/macosx-installation.html).
-To install MySQL, you can get the installer
-[here](http://dev.mysql.com/downloads/mysql/).
-On a Mac, it is as easy as downloading a disk image, double clicking to install,
-and then stepping through the installation process.
+[Material Desgin Specification](http://www.google.com/design/spec/material-design) a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science.
+ 
+[Android app guide](https://developer.android.com/design/material/index.html)
 
-The Mac disk image also comes with a startup package which will
-automatically launch MySQL when you start your computer.  Additionally,
-it adds a convenient menu in the System Preferences for managing
-MySQL:
+[Material Design 中文版](http://design.1sters.com/) 通过互联网的方式翻译成中文.
 
-After you setup MySQL, you can set the root MySQL account 
-from the command line by issuing the command:
+[materialup](http://www.materialup.com/) Daily showcase of the best Material Design websites and apps!
+
+Google 设计师谈论 Material Design [here](http://www.ifanr.com/429330), 以现实世界的纸墨为隐喻，强调了阴影和层次，用动画效果代表现实的力反馈，试图把物理世界的规则带回电子界面。Material Design 的想法从何而来，意义是什么？
+
+Here is a break ^_^ the command line by issuing the command:
 
 ```bash
 $ mysqladmin -u root password: XXXXXXXXXXXX
 ```
 
-SQL has robust permissions so that different accounts can have
-different permissions. This is good in production environments, but
-for now logging in as root with full permissions is fine.
 
-You can connect to the MySQL database from the command line:
+# Other APP with Material Design
+Material Design is hitting Android by storm. It’s bowling people over with its gorgeous transitions and smooth movements. The controls give users more power than ever. It’s still young but plenty of app developers have already begun using Material Design. 
 
-```bash
-$ mysql -u root --host=localhost --password
-Enter password: 
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 22
-Server version: 5.6.12 MySQL Community Server (GPL)
+* 26 best Material Design apps for Android ([link](http://www.androidauthority.com/best-material-design-apps-for-android-523420/))
+* Material Design for Bootstrap ([link](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html))
+* 十大Material Design开源项目 ([link](http://www.csdn.net/article/2014-11-21/2822753-material-design-libs))
+* 知乎话题 ([link](http://www.zhihu.com/topic/20005114))
+* Github most forked project ([link](https://github.com/search?l=Java&o=desc&p=2&q=material&s=forks&type=Repositories&utf8=%E2%9C%93))
 
-Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> ...
-```
-
-Now you are ready to issue SQL commands!
-
-# The Sequel Pro SQL Client on OS X
-
-If you are using an Apple computer, I recommend using the free and
-open-source graphical program [Sequel Pro](http://www.sequelpro.com/)
-to connect to the database and to run SQL commands.  Sequel Pro also
-simplifies the process of viewing tables and inspecting other
-database properties. The sign-in screen looks like:
-
-
-Once you install Sequel Pro, you connect to it with your user name
-and password as above.
-
-Inside of Sequel Pro, there is a query menu
-where you can issue SQL commands against the database:
-
-
-# Other MySQL Clients
-
-If you prefer, there are several other programs for connecting to 
-MySQL databases.
-
-* MySQL Workbench ([link](http://dev.mysql.com/downloads/tools/workbench/))
-* DBVisualizer ([link](http://www.dbvis.com/))
-* phpMyAdmin ([link](http://www.phpmyadmin.net/home_page/))
-* HeidiSQL ([link](http://www.heidisql.com/))
-
-*In the [next post]({% post_url 2014-04-28-create-tables-sql %}) in this
-[series of posts]({% post_url 2014-04-17-data-science-sql %}), 
+*In the [next post]({% post_url 2015-01-21-material-design-collection2 %}) in this
+[series of posts]({% post_url 2015-01-21-material-design-collection %}), 
 we will go over the SQL commands
 required to set up the example recipes database from the 
-[first post]({% post_url 2014-04-18-database-normalization %}) 
+[first post]({% post_url 2015-01-21-material-design-collection %}) 
 in this series.*
 
 {% include twitter_plug.html %}
