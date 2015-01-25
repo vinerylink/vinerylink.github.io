@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Android性能优化典范"
-comments: false
+comments: true
 permalink: android-performance
 ---
 
@@ -268,4 +268,4 @@ Purdue University研究了最受欢迎的一些应用的电量消耗，平均只
 
 本文转载自：胡凯个人博客 CSDN 2015-01-20 
 
-{% include twitter_plug.html %}
+{% include comments.html %}
