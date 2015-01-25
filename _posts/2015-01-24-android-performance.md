@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Android性能优化典范"
-comments: true
+comments: false
 permalink: android-performance
 ---
 
