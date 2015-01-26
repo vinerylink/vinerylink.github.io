@@ -10,7 +10,7 @@ permalink:        pretty
 
 # Setup
 title:            Vinery Link
-tagline:          'Data Science, Apache Pig, Hadoop, Blogging, Tweets, Astrophysics'
+tagline:          'Android Performance, Mobile App, Social, Blogging, G+, FFmpeg'
 #url:              http://www.funyoung.com
 #shorturl:         funyoung.com
 
@@ -29,6 +29,7 @@ github:
 # This is the list of pages to include in the header of the website.
 pages_list:       
   About: '/about/'
+  App: '/app/'
   Archive: '/archive/'
   Feed: '/atom.xml'
 
