@@ -10,9 +10,9 @@ title: Android Performance Pattern
       <p>Your user agent does not support the HTML5 Video element.</p>
     </video>
 
-<video id="video1" controls="" preload="none" poster="/assets/test.jpg">
-      <source id="mp4" src="/assets/app_why60fps.mp4" type="video/mp4">
-      <p>Your user agent does not support the HTML5 Video element.</p>
+<video id="why60fps" controls="" preload="none" poster="/assets/test.jpg">
+      <source id="mp4" src="/assets/app_why60fps.mp4" width="320" height="240" type="video/mp4">
+      <p>Why 60fps</p>
     </video>
 
 ![Android Performance Patterns: Why 60fps?](/assets/app_why60fps.mp4)
