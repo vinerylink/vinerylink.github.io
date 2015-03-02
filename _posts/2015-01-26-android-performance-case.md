@@ -13,7 +13,7 @@ permalink: android-performance
 最近我在我的Nexus4上安装了[Falcon Pro](https://play.google.com/store/apps/details?id=com.jv.falcon.pro)(下 图)，一个新款的推特（Twitter）客户端。我觉得这款应用真的很赞，但我也注意到一些使用时的瑕疵：似乎在划屏滚动主界面的时间轴时，帧率并不能很 稳定。于是我利用我每天工作中所使用的工具和方法对此稍加研究，很快发现了Falcon Pro不能达到其应有性能的一些原因。
 
 
-![Falcon Pro](/assets/ap_case_falcon_pro.jpg)
+![Falcon Pro](/assets/ap_case_falcon_pro.png)
 
 我这篇文章的主旨在于告诉你如何在一个应用中追踪和定位性能问题，甚至在没有它的源代码的情况下。你所要做的只是要获得最新的[Android4.2SDK](http://developer.android.com/sdk/index.html)（最新的ADT工具可以帮你轻而易举的完成此事）。我强烈推荐你“能够”去下载这款有待研究的应用。不幸的是，Falcon Pro是一款付费应用，我因此只能提供一些文件的链接以便你能对照我的分析。
 
@@ -32,11 +32,11 @@ Android4.1通过“黄油项目”将焦点放在性能优化上，并且它也�
 
 *如果开发者选项在你的Android4.2设备上不可见，你可以在“关于手机”或者“关于桌面选择”的界面底部，点击“版本号”七次。*
 
-![Developing Mode](/assets/ap_case_developing_mode.jpg)
+![Developing Mode](/assets/ap_case_developing_mode.png)
 
 我这篇文章的主旨在于告诉你如何在一个应用中追踪和定位性能问题，甚至在没有它的源代码的情况下。你所要做的只是要获得最新的[Android4.2SDK](http://developer.android.com/sdk/index.html)（最新的ADT工具可以帮你轻而易举的完成此事）。我强烈推荐你“能够”去下载这款有待研究的应用。不幸的是，Falcon Pro是一款付费应用，我因此只能提供一些文件的链接以便你能对照我的分析。
 
-![Developing Option](/assets/ap_case_developing_options.jpg)
+![Developing Option](/assets/ap_case_developing_options.png)
 
 当这个选项打开，系统将会记录画每个窗口绘画最后128帧所需要的时间。在使用这个工具前，你得先杀掉这个应用（Android未来的版本将会去掉这个要求）。
 
@@ -84,7 +84,7 @@ Systrace是一个很简单的工具去检查Falcon Pro是否存在这个问题�
 
 不要忘记关掉之前的GPU渲染分析选项。
 
-![Systrace](/assets/ap_case_systrace.jpg)
+![Systrace](/assets/ap_case_systrace.png)
 
 使用systrace时，可以打开终端，在Android SDK的tools/systrace目录下，运行systrace.py:
 
@@ -116,11 +116,11 @@ Android提供了三个工具来帮助辨别和解决重绘问题：Hierachy View
 
 Show GPU Overdraw会在屏幕上画不同的颜色来辨别重绘发生在哪儿，重绘了几次。现在就开启它并且别忘了先杀掉你的应用（将来版本的Android会去掉这个要求）。
 
-![Redraw Visilization](/assets/ap_case_overdraw_visilization.jpg)
+![Redraw Visilization](/assets/ap_case_overdraw_visilization.png)
 
 在我们查看Falcon Pro之前，让我们先看看当打开Show GPU overdraw，“设置”应用是什么样子。
 
-![GPU Overdraw Setting](/assets/ap_case_overdraw_settings.jpg)
+![GPU Overdraw Setting](/assets/ap_case_overdraw_settings.png)
 
 如果你记得每种颜色所表示的含义，你就能很容易的知道结果是什么：
 
@@ -144,7 +144,7 @@ Show GPU Overdraw会在屏幕上画不同的颜色来辨别重绘发生在哪儿
 
 有 两种移动GPU架构。第一个使用延迟渲染，比如ImaginationTech的SGX系列。这种架构允许GPU在某些特定的场景下检查和处理重绘。（如 果你混合透明和不透明的像素，它有可能不起作用。） 第二钟架构使用及时渲染，它被NVIDIA的TegraGPU采用。这种架构不能为你优化重绘，这就是为什么我喜欢在Nexus7上测试（Nexus7使 用Tegra3）。这两种架构各有优劣。但这已经超出了本文的主题。仅仅只要知道两者都可以工作的很好就行了。现在就让我们看一下Falcon Pro…
 
-![Falcon Overdraw](/assets/ap_case_overdraw_falcon_pro.jpg)
+![Falcon Overdraw](/assets/ap_case_overdraw_falcon_pro.png)
 
 截图上有大量的红色！最感兴趣的却是列表的背景是绿色的。这就显示在应用程序开始描绘它的内容前已经发生了两次重绘。我们这里所看到问题很有可能是和使用了许多全屏图片背景相关。但要解决这个问题通常是很繁琐的。
 
@@ -163,7 +163,7 @@ Hierarchy Viewer默认只能在非加密设备使用，例如工程机，工程�
 
 在 ADT（或者monitor）中打开Hierarchy Viewer的全景图，选择window标签。这个界面就会粗体高亮的显示当前设备运行的窗口，通常就是你想要研究的那个应用。选中它再点击工具栏的 Load按钮（它更像蓝色方块组成的树）。加载这棵树需要一段时间，所以请耐心等待。当这棵树加载完成你就可以看到如下图所示的画面。
 
-![Hierachy Viewer](/assets/ap_case_hierachy_viewer.jpg)
+![Hierachy Viewer](/assets/ap_case_hierachy_viewer.png)
 
 现 在视图的层级已经加载到工具里，我们也可以将其转换为PhotoShop文档。只要点击工具栏的第二个按钮，工具提示说：“Capture the window layers [..]”。Adobe Photoshop本身不是必须的，因为生成的文档可以被其他工具兼容，例如Pixelmator, The GIMP等等。你们可以下载我所生成的[PSD文件](https://docs.google.com/file/d/0B3dxhm5xm1siSElRMXpoSkpFUFE/edit)。
 
